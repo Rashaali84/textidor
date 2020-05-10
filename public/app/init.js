@@ -1,4 +1,4 @@
-fetch('/files')
+fetch('http://localhost:8080/files')
   .then(res => {
     if (!res.ok) {
       throw res;

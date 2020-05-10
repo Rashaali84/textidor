@@ -1,5 +1,5 @@
 const fetchAndLoadFile = fileName =>
-  fetch('/files/' + fileName)
+  fetch('http://localhost:8080/files/' + fileName)
     .then(res => {
       if (!res.ok) {
         throw res;
@@ -10,7 +10,7 @@ const fetchAndLoadFile = fileName =>
     .catch(err => console.error(err));
 
 const saveFile = (fileName, fileText) => {
-  fetch('/files/' + fileName, {
+  fetch('http://localhost:8080/files/' + fileName, {
     method: 'POST',
     body: JSON.stringify({ text: fileText }),
     headers: {
@@ -34,8 +34,8 @@ const saveFile = (fileName, fileText) => {
 };
 
 const deleteFile = fileName => {
-  fetch('/files/' + fileName, {
-    method: 'DELETE',
+  fetch('http://localhost:8080/files/' + fileName, {
+    method: 'DELETE'
   })
     .then(res => {
       if (!res.ok) {
